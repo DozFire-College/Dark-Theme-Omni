@@ -1,0 +1,1662 @@
+/* =====================================================================
+   Тёмный Omni — тёмная тема для журнала преподавателя omni.top-academy.ru
+   Палитры и настройки те же, что у «Тёмного журнала» для студентов.
+   Все правила работают, только пока у <html> нет класса .tj-off
+   ===================================================================== */
+
+/* ---------- Палитры ---------- */
+html {
+  --tj-bg: #13171d;
+  --tj-surface: #1b2129;
+  --tj-raised: #232a34;
+  --tj-raised-2: #2b3440;
+  --tj-border: #313a47;
+  --tj-text: #e6eaf0;
+  --tj-text-2: #c4cbd6;
+  --tj-muted: #8d98a9;
+  --tj-accent: #34b99d;          /* фирменный мятный omni, приглушённый */
+  --tj-accent-strong: #167562;   /* кнопки, активные пункты — было #22aa90 / #63d3bd */
+  --tj-accent-strong-2: #1b8670; /* они же при наведении */
+  --tj-accent-ink: #0d1c19;
+  --tj-link: #6cc9b5;
+  --tj-green-text: #6cc17a;      /* заголовки таблиц — было #469043 */
+  --tj-danger: #dc5570;          /* красный текст */
+  --tj-danger-fill: #8a1f35;     /* красные плашки, значки, кнопки — было #d91842 */
+  --tj-danger-fill-2: #9c2740;   /* они же при наведении */
+  --tj-success: #4cc38a;
+  --tj-warning: #d9bb6b;
+  --tj-violet: #a593ee;
+  /* приглушённые заливки вместо пастельных цветов сайта */
+  --tj-fill-yellow: #7f7019;     /* было #f7f194 / #ff0 */
+  --tj-fill-pink: #8c3a5d;       /* было #f2a0bf */
+  --tj-fill-cyan: #177283;       /* было #8ad2d5 */
+  --tj-fill-green: #377f4a;      /* было #a9f6b4 */
+  --tj-fill-lime: #5b7a2a;       /* было #b9d881 */
+  --tj-fill-orange: #a35f0e;     /* было orange / #f90 / #ff9700 */
+  --tj-fill-amber: #7d651f;      /* было #fecb7f / #efcb7c */
+  --tj-fill-slate: #4f6577;      /* было #90abbd */
+  --tj-fill-violet: #6a58a0;     /* было #b09ada / #a194ff / #b299cc */
+  --tj-fill-blue: #1f6696;       /* было #0187d0 / #02a8f3 / #75d2fd */
+  --tj-fill-blue-2: #2a77ab;
+  /* отметки посещаемости */
+  --tj-att-yes: #3a7f36;         /* был — #9c6 */
+  --tj-att-late: #857612;        /* опоздал — #ff0 */
+  --tj-att-not: #a3343f;         /* не был — #f66 */
+  --tj-on-fill: #f1f4f7;         /* текст на цветных заливках */
+  --tj-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+
+html[data-tj-palette="midnight"] {
+  --tj-bg: #0d1422;
+  --tj-surface: #142033;
+  --tj-raised: #1b2a41;
+  --tj-raised-2: #23344f;
+  --tj-border: #2a3b56;
+  --tj-text: #e3e9f4;
+  --tj-text-2: #bfcade;
+  --tj-muted: #8798b4;
+  --tj-accent: #4fa3e6;
+  --tj-accent-strong: #2468ab;
+  --tj-accent-strong-2: #2b77bf;
+  --tj-accent-ink: #081220;
+  --tj-link: #76b6ea;
+  --tj-fill-blue: #1d5a8c;
+  --tj-fill-blue-2: #2668a0;
+}
+
+html[data-tj-palette="amoled"] {
+  --tj-bg: #000000;
+  --tj-surface: #0c0d0f;
+  --tj-raised: #16181b;
+  --tj-raised-2: #1f2226;
+  --tj-border: #2a2d32;
+  --tj-text: #e8e8e8;
+  --tj-text-2: #c2c2c2;
+  --tj-muted: #8c8c8c;
+  --tj-accent: #3bb8ab;
+  --tj-accent-strong: #1a7f75;
+  --tj-accent-strong-2: #1f9186;
+  --tj-accent-ink: #001412;
+  --tj-link: #66c7bd;
+  --tj-shadow: 0 0 0 1px #1f2226;
+}
+
+/* ---------- База ---------- */
+html:not(.tj-off) {
+  color-scheme: dark;
+  background-color: var(--tj-bg) !important;
+}
+
+html:not(.tj-off) body,
+html:not(.tj-off) body.main,
+html:not(.tj-off) main.content,
+html:not(.tj-off) .wrap,
+html:not(.tj-off) .wrapper,
+html:not(.tj-off) #cover,
+html:not(.tj-off) .login,
+html:not(.tj-off) .profile_page,
+html:not(.tj-off) .dossier.row,
+html:not(.tj-off) .review-workspace {
+  background-color: var(--tj-bg) !important;
+  color: var(--tj-text-2);
+}
+
+html:not(.tj-off) ::selection {
+  background: var(--tj-accent-strong);
+  color: #fff;
+}
+
+html:not(.tj-off) a { color: var(--tj-link); }
+html:not(.tj-off) hr { border-color: var(--tj-border) !important; }
+
+html:not(.tj-off) h1, html:not(.tj-off) h2, html:not(.tj-off) h3,
+html:not(.tj-off) h4, html:not(.tj-off) h5, html:not(.tj-off) h6 {
+  color: var(--tj-text);
+}
+
+/* Скроллбары */
+html:not(.tj-off) ::-webkit-scrollbar { background-color: var(--tj-bg) !important; }
+html:not(.tj-off) ::-webkit-scrollbar-thumb {
+  background-color: var(--tj-raised-2) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 6px;
+}
+html:not(.tj-off) ::-webkit-scrollbar-thumb:hover { background-color: var(--tj-border) !important; }
+html:not(.tj-off) * { scrollbar-color: var(--tj-raised-2) var(--tj-bg); }
+
+/* Мелкие иконки и подписи по всему сайту */
+html:not(.tj-off) #burger { fill: var(--tj-text) !important; }
+html:not(.tj-off) .dropdown-button { color: var(--tj-text) !important; }
+html:not(.tj-off) table td i,
+html:not(.tj-off) table th i,
+html:not(.tj-off) .date,
+html:not(.tj-off) .time,
+html:not(.tj-off) .author,
+html:not(.tj-off) .left_char,
+html:not(.tj-off) .hint-block,
+html:not(.tj-off) .input-field label,
+html:not(.tj-off) .evaluation-wrap-title { color: var(--tj-muted) !important; }
+html:not(.tj-off) table td i:hover,
+html:not(.tj-off) table th i:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .number { color: var(--tj-link); }
+html:not(.tj-off) .comm,
+html:not(.tj-off) .commentsHistory,
+html:not(.tj-off) .text_info div,
+html:not(.tj-off) .logs td { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .comments-block .modalComment-row:not(:last-child) { border-bottom-color: var(--tj-border) !important; }
+
+/* =====================================================================
+   Боковое меню (md-sidenav)
+   ===================================================================== */
+html:not(.tj-off) md-sidenav,
+html:not(.tj-off) body.main main.content md-sidenav {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-text) !important;
+  border-right: 1px solid var(--tj-border);
+}
+html:not(.tj-off) md-sidenav md-content { background: transparent !important; color: var(--tj-text) !important; }
+html:not(.tj-off) body.main main.content md-sidenav.main-sidenav::-webkit-scrollbar { background-color: var(--tj-surface) !important; }
+html:not(.tj-off) md-sidenav .user_name { color: var(--tj-text) !important; }
+
+html:not(.tj-off) md-sidenav ul.main-menu li { border-left-color: transparent; }
+html:not(.tj-off) md-sidenav ul.main-menu li a { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-sidenav ul.main-menu li a:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) md-sidenav ul.main-menu li.active {
+  background-color: var(--tj-raised) !important;
+  border-left-color: var(--tj-accent) !important;
+}
+html:not(.tj-off) md-sidenav ul.main-menu li.active a { color: var(--tj-text) !important; }
+html:not(.tj-off) md-sidenav ul.main-menu li .orange-count,
+html:not(.tj-off) md-sidenav ul.hidden-menu li .orange-count {
+  background: var(--tj-danger-fill) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) md-sidenav ul.main-info a { color: var(--tj-text-2) !important; }
+html:not(.tj-off) body.main main.content md-sidenav i.material-icons { color: var(--tj-danger) !important; }
+html:not(.tj-off) body.main main.content md-sidenav i.material-icons:hover { color: var(--tj-text) !important; }
+
+/* языки и «очистить кеш» внизу меню */
+html:not(.tj-off) md-sidenav .langs_li .clearCache {
+  background: var(--tj-raised-2) !important;
+  color: var(--tj-accent) !important;
+}
+html:not(.tj-off) md-sidenav .langs_li .clearCache:hover,
+html:not(.tj-off) md-sidenav .langs_li a:hover { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) md-sidenav .langs_li .fixed-action-btn ul li a i.material-icons { color: var(--tj-text) !important; }
+
+/* =====================================================================
+   Верхняя панель (toolbar) и меню профиля
+   ===================================================================== */
+html:not(.tj-off) body.main main.content toolbar,
+html:not(.tj-off) toolbar {
+  background-color: var(--tj-surface) !important;
+  border-bottom: 1px solid var(--tj-border);
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) toolbar .pull-right,
+html:not(.tj-off) toolbar .pull-right > span a,
+html:not(.tj-off) toolbar .pull-right > span a i,
+html:not(.tj-off) .md_header_menu.md_z_index button { color: var(--tj-text) !important; }
+html:not(.tj-off) toolbar .pull-right > span i.count,
+html:not(.tj-off) .md_sub_menu .md_menu_sub span i.count {
+  background-color: var(--tj-danger-fill) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) body.main main.content .main-menu-button { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) body.main main.content .main-menu-button .material-icons { color: var(--tj-text) !important; }
+html:not(.tj-off) .changeUser button { color: var(--tj-text) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .changeUser button:after { border-top-color: var(--tj-muted) !important; }
+
+html:not(.tj-off) md-menu-content.md_header_menu md-menu-item a { color: var(--tj-text-2) !important; }
+html:not(.tj-off) md-menu-content.md_header_menu md-menu-item a:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .md_sub_menu.md_header_menu .svg-icons { background-color: var(--tj-accent) !important; }
+html:not(.tj-off) .md_sub_menu.md_header_menu .svg-icons:hover { background-color: var(--tj-text) !important; }
+html:not(.tj-off) .md_sub_menu.md_header_menu i,
+html:not(.tj-off) .md_sub_menu .md_menu_sub span { color: var(--tj-accent) !important; }
+html:not(.tj-off) .md_sub_menu.md_header_menu i:hover { color: var(--tj-text) !important; }
+
+/* загрузчик-кубик */
+html:not(.tj-off) body.main .cssload-thecube .cssload-cube:before { background-color: var(--tj-accent-strong) !important; }
+
+/* =====================================================================
+   Карточки страниц и вкладки
+   ===================================================================== */
+html:not(.tj-off) .internal-wrap-global:not(.not-internal-wrap),
+html:not(.tj-off) .internal-wrap-global-profile,
+html:not(.tj-off) .internal_wrap,
+html:not(.tj-off) .internal-wrap,
+html:not(.tj-off) .interna-wrap,
+html:not(.tj-off) .has_header,
+html:not(.tj-off) .reviews-modal .reviews-container {
+  background-color: var(--tj-surface) !important;
+  border-color: var(--tj-border) !important;
+  box-shadow: var(--tj-shadow) !important;
+  color: var(--tj-text-2);
+}
+
+/* Вкладки над карточками (.tabs-global) */
+html:not(.tj-off) .tabs-global ul li a,
+html:not(.tj-off) .sertificates .tabs ul li a {
+  background: var(--tj-raised) !important;
+  color: var(--tj-muted) !important;
+  border-color: var(--tj-border) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .tabs-global ul li a:not(.active):hover,
+html:not(.tj-off) .tabs-global ul li .active a:hover {
+  background: var(--tj-raised-2) !important;
+  color: var(--tj-text) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .tabs-global ul li a.active,
+html:not(.tj-off) .tabs-global ul li.active a,
+html:not(.tj-off) .sertificates .tabs ul li a.active,
+html:not(.tj-off) md-dialog .tabs-global ul li a.active {
+  background: var(--tj-surface) !important;
+  color: var(--tj-accent) !important;
+  border-color: var(--tj-border) var(--tj-border) var(--tj-surface) !important;
+}
+html:not(.tj-off) .tabs-global ul li a:after { background: var(--tj-surface) !important; }
+html:not(.tj-off) .tabs_modal.tabs-global ul > li.homework .custom-filter { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .tabs_modal.tabs-global ul > li.homework .custom-filter.active,
+html:not(.tj-off) .tabs_modal.tabs-global ul > li.homework .custom-filter:hover { color: var(--tj-accent) !important; }
+
+/* Вкладки внутри страниц (.tabs .tab) */
+html:not(.tj-off) .tabs { background-color: transparent !important; }
+html:not(.tj-off) .tabs .tab a {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text-2) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .tabs .tab a:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .tabs .tab a.active {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-accent) !important;
+}
+html:not(.tj-off) .tabs .indicator { background-color: var(--tj-accent) !important; }
+html:not(.tj-off) .tabs .m6.active { border-bottom-color: var(--tj-accent) !important; }
+
+/* Подвкладки */
+html:not(.tj-off) .sub-tabs .tab,
+html:not(.tj-off) main.content .presents .sub-tabs .tab {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text-2) !important;
+  border-bottom-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .sub-tabs .tab.active,
+html:not(.tj-off) main.content .presents .sub-tabs .tab.active {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-accent) !important;
+  border-bottom-color: var(--tj-accent) !important;
+}
+html:not(.tj-off) .sub-tabs .tab .badge { background-color: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .group-tab a { color: var(--tj-muted) !important; }
+html:not(.tj-off) .group-tab a.active { color: var(--tj-accent) !important; border-bottom-color: var(--tj-accent) !important; }
+
+/* Кнопки omni (мятные) */
+html:not(.tj-off) .internal-wrap-global .btn,
+html:not(.tj-off) md-dialog .btn,
+html:not(.tj-off) .btn-floating,
+html:not(.tj-off) .add-materials-btns a.btn,
+html:not(.tj-off) .md-dialog-container.internal-wrap-global.not-internal-wrap md-dialog button,
+html:not(.tj-off) .materials span.badge,
+html:not(.tj-off) .lists_linking .active,
+html:not(.tj-off) .binding_materials .lists_linking .active,
+html:not(.tj-off) .linking_forms_body .oval_btn.active,
+html:not(.tj-off) .linking_forms_body span.oval_btn,
+html:not(.tj-off) .active-result.result-selected.highlighted,
+html:not(.tj-off) .btn--link:hover,
+html:not(.tj-off) .select_pair .md-ink-ripple {
+  background-color: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .internal-wrap-global .btn:hover,
+html:not(.tj-off) .internal-wrap-global .btn.dark_blue,
+html:not(.tj-off) md-dialog .btn:hover,
+html:not(.tj-off) .btn-floating:hover,
+html:not(.tj-off) .btn-floating:focus,
+html:not(.tj-off) md-dialog#signal-layout .btn:hover,
+html:not(.tj-off) .linking_forms_body .oval_btn.better_choise:not(.active) {
+  background-color: var(--tj-accent-strong-2) !important;
+  color: var(--tj-on-fill) !important;
+}
+/* наведение на любую md-кнопку подсвечивало её ярко-мятным */
+html:not(.tj-off) button.md-button.md-ink-ripple:hover {
+  background-color: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .linking_forms_body .oval_btn { background: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .linking_forms_body .oval_btn:hover { background: var(--tj-raised) !important; }
+
+/* голубые кнопки */
+html:not(.tj-off) .presents .button-wrap .buttons .md-button,
+html:not(.tj-off) .presents .presents__lesson-actions .presents__lesson-save-actions .md-button,
+html:not(.tj-off) .presents .presents__lesson-actions .presents__lesson-edit-btn,
+html:not(.tj-off) .button-component,
+html:not(.tj-off) .voucher-info .btn,
+html:not(.tj-off) .sertificates .upload_btn a,
+html:not(.tj-off) .sertificates .file-field .btn {
+  background-color: var(--tj-fill-blue) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .button-wrap .buttons .md-button:hover,
+html:not(.tj-off) .presents .presents__lesson-actions .presents__lesson-save-actions .md-button:hover,
+html:not(.tj-off) .presents .presents__lesson-actions .presents__lesson-edit-btn:hover {
+  background-color: var(--tj-accent-strong) !important;
+}
+html:not(.tj-off) .button-component:hover,
+html:not(.tj-off) .sertificates .upload_btn a:hover,
+html:not(.tj-off) .sertificates .file-field .btn:hover { background-color: var(--tj-fill-blue-2) !important; }
+html:not(.tj-off) .button-component--not-approve.btn { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .button-component--not-approve.btn:hover { background-color: var(--tj-fill-slate) !important; }
+
+/* Зелёные заголовки (#469043) — на тёмном фоне светлее */
+html:not(.tj-off) .table th,
+html:not(.tj-off) .presents th,
+html:not(.tj-off) .binding_materials th,
+html:not(.tj-off) form.portfolio tr th,
+html:not(.tj-off) .tabMenu .card .card-title,
+html:not(.tj-off) .tabMenu .card:hover .card-title,
+html:not(.tj-off) .tabContent .card-title,
+html:not(.tj-off) .report .reportGroup,
+html:not(.tj-off) .report .reportType,
+html:not(.tj-off) .report .reportDay p,
+html:not(.tj-off) .addMaterial h4,
+html:not(.tj-off) .addHomeWork h4,
+html:not(.tj-off) .addLabWork h4,
+html:not(.tj-off) .class_work__wrap .classWork_numbers,
+html:not(.tj-off) .home_work__wrap .classWork_numbers,
+html:not(.tj-off) .exams .exam-group a {
+  color: var(--tj-green-text) !important;
+}
+html:not(.tj-off) .exams .exam-group a:hover { color: var(--tj-text) !important; }
+
+/* =====================================================================
+   Присутствие (главный журнал): пары, таблица, отметки
+   ===================================================================== */
+/* вкладки пар и групп */
+html:not(.tj-off) .presents .pars li a,
+html:not(.tj-off) .presents .groups li a {
+  background: var(--tj-raised) !important;
+  color: var(--tj-text-2) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .presents .pars li.clickable a,
+html:not(.tj-off) .presents .groups li.clickable a,
+html:not(.tj-off) .presents .pars li.unchecked_pair a,
+html:not(.tj-off) .presents .groups li.unchecked_pair a { color: var(--tj-accent) !important; }
+html:not(.tj-off) .presents .pars li.active a,
+html:not(.tj-off) .presents .groups li.active a {
+  background: var(--tj-surface) !important;
+  color: var(--tj-accent) !important;
+  border-bottom-color: var(--tj-surface) !important;
+}
+/* непроверенная прошлая пара — оранжевая */
+html:not(.tj-off) .presents .pars li.unchecked_pair_old a,
+html:not(.tj-off) .presents .groups li.unchecked_pair_old a {
+  background: var(--tj-fill-orange) !important;
+  border-color: var(--tj-fill-orange) !important;
+  border-bottom-color: var(--tj-border) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .pars li.clickable a:before,
+html:not(.tj-off) .presents .groups li.clickable a:before,
+html:not(.tj-off) .presents .pars li.unchecked_pair:not(.active) a:before,
+html:not(.tj-off) .presents .groups li.unchecked_pair:not(.active) a:before { background: var(--tj-fill-orange) !important; }
+html:not(.tj-off) .presents .pars li.disabled,
+html:not(.tj-off) .presents .groups li.disabled { color: var(--tj-muted) !important; }
+
+/* таблица студентов */
+html:not(.tj-off) .presents .table > thead > tr > th {
+  background: var(--tj-raised) !important;
+  color: var(--tj-accent) !important;
+  border-bottom-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .presents .table tr { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .presents .number span,
+html:not(.tj-off) main.content .groups .number span { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .presents .number .user-photo__presents { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) .presents .cur-date,
+html:not(.tj-off) .presents .cur-num-date { color: var(--tj-muted) !important; }
+html:not(.tj-off) .presents .group,
+html:not(.tj-off) .presents__event,
+html:not(.tj-off) .presents .name p.price_one_time,
+html:not(.tj-off) .presents.materials-table .modal_table .diff_materials { color: var(--tj-link) !important; }
+html:not(.tj-off) main.content .presents .topPanel .paddingLeft { color: var(--tj-accent) !important; }
+
+/* кнопки «был / опоздал / не был» */
+html:not(.tj-off) .presents .was_all.was_1,
+html:not(.tj-off) .presents .presents span:nth-child(1) i { border-color: var(--tj-att-yes) !important; }
+html:not(.tj-off) .presents .was_all.was_2,
+html:not(.tj-off) .presents .presents span:nth-child(2) i { border-color: var(--tj-att-late) !important; }
+html:not(.tj-off) .presents .was_all.was_3,
+html:not(.tj-off) .presents .presents span:nth-child(3) i { border-color: var(--tj-att-not) !important; }
+html:not(.tj-off) .presents .was_all.was_1:hover,
+html:not(.tj-off) .presents .presents span:nth-child(1) i:hover,
+html:not(.tj-off) .presents .presents .was-yes {
+  background: var(--tj-att-yes) !important;
+  border-color: var(--tj-att-yes) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .was_all.was_2:hover,
+html:not(.tj-off) .presents .presents span:nth-child(2) i:hover,
+html:not(.tj-off) .presents .presents .was-late {
+  background: var(--tj-att-late) !important;
+  border-color: var(--tj-att-late) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .was_all.was_3:hover,
+html:not(.tj-off) .presents .presents span:nth-child(3) i:hover,
+html:not(.tj-off) .presents .presents .was-not {
+  background: var(--tj-att-not) !important;
+  border-color: var(--tj-att-not) !important;
+  color: var(--tj-on-fill) !important;
+}
+
+/* тема урока, кнопки, выбор даты */
+html:not(.tj-off) main.content .presents .anotherDate,
+html:not(.tj-off) main.content .presents .dialog-demo-content button,
+html:not(.tj-off) main.content .presents .set-date button,
+html:not(.tj-off) .presents .left-form-side .modal-footer button.btn.btn-flat,
+html:not(.tj-off) .presents .comment .input-field .buttons .button,
+html:not(.tj-off) .presents .add-materials-btns a:hover {
+  background: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .left-form-side .modal-footer button.btn.btn-flat:hover,
+html:not(.tj-off) .presents .comment .input-field .buttons .button:hover {
+  background: var(--tj-accent-strong-2) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .presents .add-materials-btns a {
+  background: var(--tj-raised-2) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) .presents .teacherInit .check-techers-wrap .check-techers p label:before { border-color: var(--tj-accent) !important; }
+html:not(.tj-off) .presents .teacherInit .check-techers-wrap .check-techers p label:after { background: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .presents .teacherInit .check-techers-wrap .check-techers p input:checked + label:after { background: var(--tj-accent) !important; }
+
+html:not(.tj-off) .presents .chosen-container-active.chosen-with-drop .chosen-single,
+html:not(.tj-off) .presents .chosen-container-single .chosen-single,
+html:not(.tj-off) .presents md-input-container textarea { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .presents .chosen-container-single .chosen-single div b { border-top-color: var(--tj-muted) !important; }
+
+html:not(.tj-off) .presents .modal-footer.footer-table thead { background: var(--tj-raised) !important; }
+html:not(.tj-off) .presents .modal-footer.footer-table thead th,
+html:not(.tj-off) .presents .modal-footer.footer-table thead th i.material-icons { color: var(--tj-text) !important; }
+html:not(.tj-off) .presents .modal-footer.footer-table tr td:first-child:before { border-top-color: var(--tj-border) !important; }
+
+html:not(.tj-off) .presents .teacherInit .presents__theme-editor md-select .md-select-value,
+html:not(.tj-off) .presents .teacherInit .presents__theme-editor md-select .md-text,
+html:not(.tj-off) .presents .presents__lesson-topic .presents__lesson-topic-controls md-select .md-select-value,
+html:not(.tj-off) .presents .presents__lesson-topic .presents__lesson-topic-controls md-select .md-text { color: var(--tj-text) !important; }
+html:not(.tj-off) .presents .presents__lesson-topic .presents__lesson-topic-controls md-select {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .presents .presents__lesson-issue .presents__methodpackage-option--disabled .md-icon {
+  background-color: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .presents .presents__empty-group {
+  background: color-mix(in srgb, var(--tj-warning) 12%, var(--tj-surface)) !important;
+  border-left-color: var(--tj-warning) !important;
+  color: var(--tj-text-2) !important;
+}
+html:not(.tj-off) .presents .presents__recovered-theme {
+  background: color-mix(in srgb, var(--tj-link) 12%, var(--tj-surface)) !important;
+  border-left-color: var(--tj-link) !important;
+  color: var(--tj-text-2) !important;
+}
+
+/* выбор страницы */
+html:not(.tj-off) .page_picker input { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .page_picker i { background: var(--tj-raised-2) !important; color: var(--tj-accent) !important; }
+
+/* =====================================================================
+   Типы работ: у каждого свой цвет (точки-легенды, оценки, статусы ДЗ)
+   ===================================================================== */
+/* домашняя — жёлтая */
+html:not(.tj-off) .works div.home-work-w:before,
+html:not(.tj-off) .groups .visits_wrap .marks div.hw { background-color: var(--tj-fill-yellow) !important; }
+/* контрольная — розовая */
+html:not(.tj-off) .works div.control-work-w:before,
+html:not(.tj-off) .groups .visits_wrap .marks div.kw,
+html:not(.tj-off) .tasks .deadline-task:before,
+html:not(.tj-off) .tasks .deadline-task-w:before,
+html:not(.tj-off) .students .card-info p.gpa span,
+html:not(.tj-off) .binding_materials .only-teach,
+html:not(.tj-off) .binding_materials .only-teach:hover,
+html:not(.tj-off) .binding_materials .binding-materials-table .cutted_wrap.only-teach,
+html:not(.tj-off) .binding_materials .binding-materials-table .cutted_wrap.only-teach:hover { background-color: var(--tj-fill-pink) !important; }
+html:not(.tj-off) .works div.blocked-w:before,
+html:not(.tj-off) .home_work-table .hw_buttons.hw_not-loaded {
+  background-color: var(--tj-fill-pink) !important;
+  border-color: var(--tj-fill-pink) !important;
+}
+/* классная — бирюзовая */
+html:not(.tj-off) .works div.class-work-w:before,
+html:not(.tj-off) .groups .visits_wrap .marks div.cw,
+html:not(.tj-off) .tasks .in-work-task:before,
+html:not(.tj-off) .tasks .in-work-task-w:before,
+html:not(.tj-off) .students .card-info p.percent_vizit span,
+html:not(.tj-off) .binding_materials .binding-materials-table .cutted_wrap { background-color: var(--tj-fill-cyan) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .binding_materials .binding-materials-table .cutted_wrap:hover { background-color: var(--tj-accent-strong-2) !important; }
+html:not(.tj-off) .works div.opened-w:before {
+  background-color: var(--tj-fill-cyan) !important;
+  border-color: var(--tj-fill-cyan) !important;
+}
+/* лабораторная — зелёная */
+html:not(.tj-off) .works div.lab-work-w:before,
+html:not(.tj-off) .groups .visits_wrap .marks div.lw,
+html:not(.tj-off) .tasks .done-task:before,
+html:not(.tj-off) .tasks .done-task-w:before { background-color: var(--tj-fill-green) !important; }
+html:not(.tj-off) .works div.tested-w:before,
+html:not(.tj-off) .home_work-table .hw_buttons.hw_checked {
+  background-color: var(--tj-fill-green) !important;
+  border-color: var(--tj-fill-green) !important;
+}
+/* практическая — оранжевая */
+html:not(.tj-off) .works div.practical-work:before,
+html:not(.tj-off) .groups .visits_wrap .marks div.practical-work,
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_3 > div.practical-work span,
+html:not(.tj-off) .exems_layout_count,
+html:not(.tj-off) .view_lith,
+html:not(.tj-off) md-dialog .badge { background-color: var(--tj-fill-orange) !important; color: var(--tj-on-fill) !important; }
+/* пропуск / просрочено — бордовая */
+html:not(.tj-off) .works div.absent-w:before,
+html:not(.tj-off) .tasks .rejected-task:before,
+html:not(.tj-off) .tasks .rejected-task-w:before { background-color: var(--tj-danger-fill) !important; }
+html:not(.tj-off) .works div.notTested-w:before,
+html:not(.tj-off) .home_work-table .hw_buttons.hw_overdue {
+  background: var(--tj-danger-fill) !important;
+  border-color: var(--tj-danger-fill) !important;
+}
+/* опоздание / пересдача — серо-синяя */
+html:not(.tj-off) .works div.late-w:before { background-color: var(--tj-fill-slate) !important; }
+html:not(.tj-off) .works div.retake-w:before,
+html:not(.tj-off) .home_work-table .hw_buttons.hw_retake {
+  background: var(--tj-fill-slate) !important;
+  border-color: var(--tj-fill-slate) !important;
+}
+html:not(.tj-off) .students .card-info p.place span { background: var(--tj-fill-violet) !important; }
+html:not(.tj-off) .groups .visits_wrap .marks div span,
+html:not(.tj-off) .students .card-info p span { color: var(--tj-on-fill) !important; }
+
+/* бейджи типов занятий */
+html:not(.tj-off) .home-work { background-color: var(--tj-fill-blue) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .control-work { background-color: var(--tj-fill-violet) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .class-work { background-color: var(--tj-fill-green) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .lab-work { background-color: var(--tj-danger-fill) !important; color: var(--tj-on-fill) !important; }
+/* строки «отсутствовал» и «опоздал» */
+html:not(.tj-off) .absent {
+  background-color: color-mix(in srgb, var(--tj-danger-fill) 30%, var(--tj-surface)) !important;
+  border-color: var(--tj-danger-fill) !important;
+}
+html:not(.tj-off) .late {
+  background-color: color-mix(in srgb, var(--tj-fill-amber) 30%, var(--tj-surface)) !important;
+  border-color: var(--tj-fill-orange) !important;
+}
+
+/* =====================================================================
+   Группы (посещаемость по группе)
+   ===================================================================== */
+html:not(.tj-off) .groups .nav_week { color: var(--tj-accent) !important; }
+html:not(.tj-off) .groups table.groups-table .lenta_data {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-accent-strong) !important;
+  color: var(--tj-muted) !important;
+}
+html:not(.tj-off) .groups .visits_wrap { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .groups .visits_wrap.wasnot { border-color: var(--tj-danger) !important; }
+html:not(.tj-off) .groups .visits_wrap.lates { border-color: var(--tj-fill-slate) !important; }
+html:not(.tj-off) .groups .visits_wrap .comment span {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-accent-strong) !important;
+  color: var(--tj-text-2) !important;
+}
+html:not(.tj-off) .groups .groups-stud-info-wrap .groups-stud-info {
+  background-color: var(--tj-surface) !important;
+  border-color: var(--tj-accent-strong) !important;
+}
+html:not(.tj-off) .groups .para i { color: var(--tj-muted) !important; }
+
+/* =====================================================================
+   Расписание
+   ===================================================================== */
+html:not(.tj-off) .schedule .schedule_top .nav_week i,
+html:not(.tj-off) .schedule td .subject,
+html:not(.tj-off) .schedule .para p span:first-child { color: var(--tj-accent) !important; }
+html:not(.tj-off) .schedule th { color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .schedule th.angle { color: var(--tj-muted) !important; }
+html:not(.tj-off) .schedule th .blue_bg { background: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .schedule tr { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .schedule td { background: var(--tj-surface) !important; }
+html:not(.tj-off) .schedule tr > td:last-child > div:after { background: var(--tj-surface) !important; }
+html:not(.tj-off) .schedule td div:before { background: var(--tj-raised) !important; }
+html:not(.tj-off) .schedule td .group,
+html:not(.tj-off) .schedule td span.time,
+html:not(.tj-off) .schedule td .auditory,
+html:not(.tj-off) .schedule .para p span:last-child { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .schedule td span.pair { color: var(--tj-success) !important; }
+
+/* =====================================================================
+   Главная страница, новости и события
+   ===================================================================== */
+html:not(.tj-off) .home_page .home_block {
+  background-color: var(--tj-surface) !important;
+  box-shadow: var(--tj-shadow) !important;
+  border: 1px solid var(--tj-border);
+}
+html:not(.tj-off) .home_page .home_block .circles .key { color: var(--tj-muted) !important; }
+html:not(.tj-off) .home_page .home_block .circles.home_vizit_rates .counter {
+  background: var(--tj-fill-slate) !important;
+  border-color: var(--tj-fill-slate) !important;
+}
+html:not(.tj-off) .home_page .home_block .circles.home_losses_rates .counter {
+  background-color: var(--tj-danger-fill) !important;
+  border-color: var(--tj-danger-fill) !important;
+}
+html:not(.tj-off) .home_page .home_block .link_page.home_dz { background: var(--tj-fill-blue) !important; }
+html:not(.tj-off) .home_page .home_block .link_page.home_statistic { background: var(--tj-fill-violet) !important; }
+html:not(.tj-off) .home_page .home_block .link_page.news { background: var(--tj-fill-cyan) !important; }
+html:not(.tj-off) .home_page .home_block .link_page.events { background: var(--tj-fill-amber) !important; }
+html:not(.tj-off) .home_page .news .card-title { color: var(--tj-text) !important; }
+html:not(.tj-off) .home_page .news .author i,
+html:not(.tj-off) .home_page .news .day i,
+html:not(.tj-off) .home_page .news .time i,
+html:not(.tj-off) .home_page .news .author span,
+html:not(.tj-off) .home_page .news .day span,
+html:not(.tj-off) .home_page .news .time span { color: var(--tj-accent) !important; }
+html:not(.tj-off) .home_page .events .curent_date,
+html:not(.tj-off) .home_page .events .events_wrap,
+html:not(.tj-off) .home_page .events .events_wrap .time,
+html:not(.tj-off) .home_page .events .events_wrap .place { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .home_page .events .active:hover .events_wrap {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-fill-orange) !important;
+}
+html:not(.tj-off) .home_page .events .events_schedule table th {
+  background: var(--tj-fill-amber) !important;
+  color: var(--tj-on-fill) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .home_page .events .events_schedule table td { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .home_page .events .events_schedule table td.has_event { background: var(--tj-fill-amber) !important; }
+html:not(.tj-off) .home_page .events .events_schedule table td.active:before {
+  background: var(--tj-fill-orange) !important;
+  border-color: var(--tj-text) !important;
+}
+
+html:not(.tj-off) .tabMenu .internal_wrap,
+html:not(.tj-off) .schedule .internal_wrap { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .tabMenu .card { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .tabMenu .card .card-content-title .card-title { color: var(--tj-text) !important; }
+html:not(.tj-off) .tabMenu .card span.author span,
+html:not(.tj-off) .tabMenu .card .day span,
+html:not(.tj-off) .tabMenu .card .time span { color: var(--tj-muted) !important; }
+html:not(.tj-off) .tabMenu.tabNews .title h1 { color: var(--tj-accent) !important; }
+html:not(.tj-off) .tabMenu.tabEvents .title h1 { color: var(--tj-danger) !important; }
+
+/* =====================================================================
+   Домашние и классные работы
+   ===================================================================== */
+html:not(.tj-off) .home_work__wrap .home_work-table .home-work--date,
+html:not(.tj-off) .home_work__wrap .lab_work__table .home-work--date,
+html:not(.tj-off) .home_work__wrap .table td i,
+html:not(.tj-off) .home_work__wrap .old-stud { color: var(--tj-muted) !important; }
+html:not(.tj-off) .home_work__wrap .old-stud { border-bottom-color: var(--tj-muted) !important; }
+html:not(.tj-off) .home_work__wrap .table td i:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .home_work__wrap .oldStydent { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) .home_work-table .home_work__tdInner > *,
+html:not(.tj-off) .home_work-table th > div > i { color: var(--tj-accent) !important; }
+html:not(.tj-off) .home_work-table .home_work__tdInner > *:hover,
+html:not(.tj-off) .home_work-table th > div > i:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .home_work-table .readCommentMenu .commentMenuInner {
+  background: var(--tj-raised-2) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) .internal-wrap-global .home_work-table md-input-container .hw-burger__circle { background: var(--tj-muted) !important; }
+html:not(.tj-off) .home_work-table .hw_buttons.hw_checked { color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .home_work-table .hw_buttons.hw_new { background: var(--tj-raised) !important; }
+html:not(.tj-off) .home_work-table .hw_buttons.hw_overdue.automark {
+  background: var(--tj-raised) !important;
+  color: var(--tj-danger) !important;
+  border-color: var(--tj-danger) !important;
+}
+
+/* выпадающие оценки: не выставлено / не загружено / выставлено */
+html:not(.tj-off) .internal-wrap-global md-select { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .internal-wrap-global .notChecked md-select,
+html:not(.tj-off) .internal-wrap-global .notChecked md-select-value { border-color: var(--tj-muted) !important; }
+html:not(.tj-off) .internal-wrap-global .notChecked md-select-value,
+html:not(.tj-off) .internal-wrap-global .notChecked md-select-value *,
+html:not(.tj-off) .internal-wrap-global .notLoaded md-select-value,
+html:not(.tj-off) .internal-wrap-global .notLoaded md-select-value * { color: var(--tj-muted) !important; }
+html:not(.tj-off) .internal-wrap-global .notLoaded md-select,
+html:not(.tj-off) .internal-wrap-global .notLoaded md-select-value { border-color: var(--tj-danger) !important; }
+html:not(.tj-off) .internal-wrap-global .done md-select { border-color: var(--tj-fill-blue-2) !important; }
+html:not(.tj-off) .internal-wrap-global .done md-select-value {
+  background: var(--tj-fill-blue) !important;
+  border-color: var(--tj-fill-blue) !important;
+}
+html:not(.tj-off) .class_work__wrap .internal-wrap-global .classWork_selects md-select[data-md-container-class="selectdemoSelectHeader blue violet"] { border-color: var(--tj-fill-pink) !important; }
+html:not(.tj-off) .class_work__wrap .internal-wrap-global .classWork_selects .done [data-md-container-class="selectdemoSelectHeader blue violet"] md-select-value {
+  background: var(--tj-fill-pink) !important;
+  border-color: var(--tj-fill-pink) !important;
+}
+html:not(.tj-off) .class_work__wrap .internal-wrap-global .classWork_selects md-select[data-md-container-class="selectdemoSelectHeader blue green"] { border-color: var(--tj-fill-cyan) !important; }
+html:not(.tj-off) .class_work__wrap .internal-wrap-global .classWork_selects .done [data-md-container-class="selectdemoSelectHeader blue green"] md-select-value {
+  background: var(--tj-fill-cyan) !important;
+  border-color: var(--tj-fill-cyan) !important;
+}
+html:not(.tj-off) md-select.ng-not-empty[data-md-container-class="selectdemoSelectHeader violet"] { background: var(--tj-fill-violet) !important; }
+html:not(.tj-off) md-select.ng-not-empty[data-md-container-class="selectdemoSelectHeader green"] { background: var(--tj-fill-lime) !important; }
+html:not(.tj-off) .internal-wrap-global .hw-count { color: var(--tj-danger) !important; }
+html:not(.tj-off) .internal-wrap-global .hw-count__text { color: var(--tj-muted) !important; }
+html:not(.tj-off) .btnMark,
+html:not(.tj-off) select.markSelect { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .disableded {
+  background-color: var(--tj-raised-2) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-muted) !important;
+}
+
+/* окно проверки ДЗ */
+html:not(.tj-off) .home_work__wrap #homeWorkModal ul li span { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .home_work__wrap #homeWorkModal ul li .material-icons { color: var(--tj-muted) !important; }
+html:not(.tj-off) .home_work__wrap #homeWorkModal ul li .material-icons:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .home_work__wrap #homeWorkModal .oneMoreHomeWork,
+html:not(.tj-off) .home_work__wrap #homeWorkModal .oneMoreLabWork,
+html:not(.tj-off) .home_work__wrap #homeWorkModal .oneMoreRequests { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .home_work__wrap #homeWorkModal .oneMoreRequests-buttons .not { background-color: var(--tj-danger-fill) !important; }
+
+html:not(.tj-off) md-dialog .oneMoreHomeWork span.date.ng-binding,
+html:not(.tj-off) md-dialog .oneMoreLabWork span.date.ng-binding,
+html:not(.tj-off) md-dialog .oneMoreRequests span.date.ng-binding,
+html:not(.tj-off) md-dialog .hw-bold,
+html:not(.tj-off) md-dialog .hw-black-color { color: var(--tj-text) !important; }
+html:not(.tj-off) md-dialog .oneMoreHomeWork li > span,
+html:not(.tj-off) md-dialog .oneMoreLabWork li > span,
+html:not(.tj-off) md-dialog .oneMoreRequests li > span { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-dialog .oneMoreHomeWork li i:hover,
+html:not(.tj-off) md-dialog .oneMoreLabWork li i:hover,
+html:not(.tj-off) md-dialog .oneMoreRequests li i:hover { color: var(--tj-text) !important; }
+
+/* новое окно ДЗ (hw-md) */
+html:not(.tj-off) :is(#myDialog.home_work_modal .color-grey, #myDialog.home_work_modal .hw-md__tabs_modal ul a:not(.active),
+  #myDialog.home_work_modal .hw-md_stud__group, #myDialog.home_work_modal .hw-md_theme,
+  #myDialog.home_work_modal .hw-md_stud-work__date, #myDialog.home_work_modal .hw-md_stud-work__date-pair,
+  .hw-md_single .color-grey, .hw-md_single__back, .hw-md_single_stud__group, .hw-md_single_theme,
+  .hw-md_single_teacher__file-count, .hw-md_delete h3, .hw-md_delete_teacher__count,
+  .md-dialog-content.md-dialog-content__stud-hw .md-title, .md-dialog-actions__stud-hw,
+  .hw-md_single__btn-wrap .hw-md_single__btn-decline, .hw-md_delete__btn-wrap .hw-md_delete__btn-decline) {
+  color: var(--tj-muted) !important;
+}
+html:not(.tj-off) :is(.hw-md_single_stud-work__date span, .hw-md_single_stud-work__answer-text,
+  .md-dialog-content.md-dialog-content__stud-hw .md-body) {
+  color: var(--tj-text-2) !important;
+}
+html:not(.tj-off) :is(#myDialog.home_work_modal .custom-style, .hw-md_single_teacher__comment#custom-style,
+  .hw-md_delete_teacher__comment#custom-style) {
+  color: var(--tj-text-2) !important;
+  border-color: var(--tj-border) !important;
+  background-color: var(--tj-raised) !important;
+}
+html:not(.tj-off) :is(#myDialog.home_work_modal .hw-md_content .drop-over, #myDialog.home_work_modal .hw-md_item hr,
+  .hw-md_single .drop-over, .hw-md_single .btn hr, .hw-md_single_teacher__file-wrap,
+  .hw-md_single__select-mark .md-button, .hw-md_single__btn-wrap .hw-md_single__btn-decline,
+  .hw-md_delete__btn-wrap .hw-md_delete__btn-decline) {
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) #myDialog.home_work_modal .hw-md__tabs_modal ul:before { background: var(--tj-border) !important; }
+html:not(.tj-off) #myDialog.home_work_modal .hw-md_subtitle { color: var(--tj-danger) !important; }
+html:not(.tj-off) #myDialog.home_work_modal md-dialog .btn span,
+html:not(.tj-off) .hw-md_single .btn span,
+html:not(.tj-off) .hw-md_single__select-mark .md-checked .md-button {
+  background: var(--tj-accent-strong) !important;
+  border-color: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .md-dialog-content.md-dialog-content__stud-hw .close:before,
+html:not(.tj-off) .md-dialog-content.md-dialog-content__stud-hw .close:after { background-color: var(--tj-text) !important; }
+
+html:not(.tj-off) .comment_popup:after { border-left-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .exam_comment { background: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+
+/* =====================================================================
+   Задачи, сигналы, отчёты, экзамены
+   ===================================================================== */
+html:not(.tj-off) .tasks tbody tr:last-child .task_colored.empty:before,
+html:not(.tj-off) .tasks #admin tr > *:not(:first-child),
+html:not(.tj-off) tr.sumReport-tr td { border-bottom-color: var(--tj-border) !important; }
+
+html:not(.tj-off) .signal-tab .signal-header md-input-container label,
+html:not(.tj-off) md-dialog#signal-layout .form-rowStatus md-input-container label { color: var(--tj-muted) !important; }
+html:not(.tj-off) .signal-tab .signal-header md-input-container .md-input:before,
+html:not(.tj-off) md-dialog#signal-layout .form-rowStatus md-input-container .md-input:before { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) md-dialog#signal-layout .form-rowStatus .md-input:checked:before { background-color: var(--tj-accent-strong) !important; }
+html:not(.tj-off) md-dialog#signal-layout .float-wrap .problem { border-color: var(--tj-border) !important; }
+html:not(.tj-off) md-dialog#signal-layout .form-rowStatus .md-button.md-raised {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) md-dialog#signal-layout .form-rowStatus .md-button.md-primary.md-raised,
+html:not(.tj-off) md-dialog#signal-layout md-checkbox.md-checked .md-icon,
+html:not(.tj-off) md-dialog#signal-layout .datepicker-row .md-calendar-date-selection-indicator {
+  background-color: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) md-dialog#signal-layout .modal_title { color: var(--tj-accent) !important; }
+html:not(.tj-off) .modal_title { color: var(--tj-link) !important; }
+
+html:not(.tj-off) .report #report .table-wrapper.schedule td.scrolled div:before,
+html:not(.tj-off) .report .reportTdInner { background: var(--tj-raised) !important; }
+html:not(.tj-off) .report #report .table-wrapper.schedule th:first-child { color: var(--tj-text) !important; }
+html:not(.tj-off) .report .reportDay { color: var(--tj-muted) !important; }
+html:not(.tj-off) .report #report .sub-tabs .tab a,
+html:not(.tj-off) .report #report .sub-tabs .tab a.active,
+html:not(.tj-off) .report #report tr td:first-child.not_empty { color: var(--tj-accent) !important; }
+html:not(.tj-off) .report #report .sub-tabs .tab a:before { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .report #report .sub-tabs .tab a.active:before {
+  border-color: var(--tj-accent) !important;
+  background: var(--tj-accent) !important;
+}
+
+html:not(.tj-off) .exams .group a { color: var(--tj-accent) !important; }
+html:not(.tj-off) tr.openMarks { color: var(--tj-muted) !important; }
+html:not(.tj-off) tr.openMarks a { color: var(--tj-text) !important; }
+html:not(.tj-off) #blockExamMark thead tr,
+html:not(.tj-off) #blockExamMark .table th:last-child:before { background: var(--tj-raised) !important; }
+html:not(.tj-off) #blockExamMark tr,
+html:not(.tj-off) #blockExamMark .table tr > *:last-child:before { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) #blockExamMark .table > thead > tr > th { color: var(--tj-text) !important; }
+
+/* =====================================================================
+   Студенты и карточка студента
+   ===================================================================== */
+html:not(.tj-off) .students .card .card-fio { color: var(--tj-text) !important; }
+html:not(.tj-off) .students .card .card-internal,
+html:not(.tj-off) .students .input-field-stud input { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .students .card-info p { color: var(--tj-muted) !important; }
+html:not(.tj-off) .students #delivery li,
+html:not(.tj-off) .students #reviewStud li,
+html:not(.tj-off) #delivery .delivery-groups li { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .students #delivery li.activeGroup,
+html:not(.tj-off) .students #reviewStud li.activeGroup,
+html:not(.tj-off) #delivery .delivery-groups li.active {
+  background-color: var(--tj-accent-strong) !important;
+  border-color: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .students #delivery li:not(.activeGroup):hover,
+html:not(.tj-off) .students #reviewStud li:not(.activeGroup):hover,
+html:not(.tj-off) #delivery .delivery-groups li:not(.active):hover {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text) !important;
+}
+
+html:not(.tj-off) .student-info .all_comments .studentComment-wrapper .it_wrap,
+html:not(.tj-off) .student-info .all_comments .studentComment-wrapper textarea,
+html:not(.tj-off) .student-info .reviews-wrap .light_border,
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr:not(.empty) td:not(.col_1):before { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .student-info .all_comments .studentComment-wrapper .studentComment-date div {
+  background: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1 div { color: var(--tj-muted) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1.wasnot div,
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1.lates div { color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1:after {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1.wasnot:after {
+  background: var(--tj-danger-fill) !important;
+  border-color: var(--tj-danger-fill-2) !important;
+}
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_1.lates:after {
+  background: var(--tj-fill-amber) !important;
+  border-color: var(--tj-fill-amber) !important;
+}
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_2 .subject .value { color: var(--tj-link) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_2 .theme .value { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_3 > div.hw span { background: var(--tj-fill-blue) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_3 > div.kw span { background: var(--tj-fill-violet) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_3 > div.cw span { background: var(--tj-fill-lime) !important; }
+html:not(.tj-off) .student-info .table_vizit_info > table > tbody > tr td.col_3 > div.lw span { background: var(--tj-fill-amber) !important; }
+html:not(.tj-off) .student-info .student_data > div div,
+html:not(.tj-off) .student-info .bottom_stud_info > div div,
+html:not(.tj-off) .student-info .reviews-wrap .reviews-wrap__right .one-lesson span,
+html:not(.tj-off) .student-info .reviews-wrap .reviews-wrap__right .one-lesson p { color: var(--tj-muted) !important; }
+html:not(.tj-off) .student-info .reviews-wrap .reviews-wrap__right .one-lesson { border-color: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .student-info .reviews-wrap .reviews-wrap__right .one-lesson .counter-works span { color: var(--tj-on-fill) !important; }
+
+html:not(.tj-off) .reviews-modal img,
+html:not(.tj-off) .reviews-modal .reviews-container .col-md-12,
+html:not(.tj-off) .reviews-modal .comments-reviews-modal textarea { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .reviews-modal h4 { color: var(--tj-text) !important; }
+html:not(.tj-off) .reviewStudent-right .button-wrap .attention-info,
+html:not(.tj-off) .reviews-wrap__right .attention-info { border-color: var(--tj-danger) !important; color: var(--tj-danger) !important; }
+
+/* =====================================================================
+   Портфолио, сертификаты, материалы, привязки
+   ===================================================================== */
+html:not(.tj-off) form.portfolio .portfolio-top--text {
+  background-color: var(--tj-raised) !important;
+  border-left-color: var(--tj-accent-strong) !important;
+}
+html:not(.tj-off) form.portfolio #history .material-icons { color: var(--tj-muted) !important; }
+html:not(.tj-off) form.portfolio #history .material-icons:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) form.portfolio .approve_tr { background: var(--tj-fill-green) !important; }
+html:not(.tj-off) form.portfolio .reject_tr { background: var(--tj-danger-fill) !important; }
+html:not(.tj-off) form.portfolio .sertificates .portf_mess .portf_info_content,
+html:not(.tj-off) .binding_materials .portf_icon .hover_info {
+  background: var(--tj-raised-2) !important;
+  color: var(--tj-text-2) !important;
+}
+html:not(.tj-off) .sertificates .internal-wrap { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .sertificates .custom-textarea { border-color: var(--tj-border) !important; }
+
+html:not(.tj-off) .materials-buttons .btn-danger,
+html:not(.tj-off) .clear-all,
+html:not(.tj-off) .clear-row,
+html:not(.tj-off) .packet .btn--red,
+html:not(.tj-off) .teaching-notifications .counter-notifications,
+html:not(.tj-off) .red:not(md-toast),
+html:not(.tj-off) .deadline { background-color: var(--tj-danger-fill) !important; }
+html:not(.tj-off) .material-item .delete-material,
+html:not(.tj-off) #materialModal span:not(.modalClose) p,
+html:not(.tj-off) .video-embed-block__error,
+html:not(.tj-off) .video-block__error,
+html:not(.tj-off) .past tbody tr > td:first-child,
+html:not(.tj-off) .selected_department.ng-not-empty .md-text { color: var(--tj-danger) !important; }
+html:not(.tj-off) .materials .first-table { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .checbox_custom label span,
+html:not(.tj-off) .limit_date_info div { background: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .checbox_custom label span:before,
+html:not(.tj-off) .limit_date_info div:before { border-top-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .limit_date_info span { border-color: var(--tj-muted) !important; }
+
+html:not(.tj-off) #details_material table tr { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) #details_material table th { background: var(--tj-raised) !important; color: var(--tj-link) !important; }
+html:not(.tj-off) .binding_materials .lists_linking input.search_methodpackage { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .binding_materials .lists_linking > div { border-color: var(--tj-border) !important; box-shadow: var(--tj-shadow) !important; }
+html:not(.tj-off) .binding_materials .unread-log { background-color: var(--tj-fill-green) !important; }
+html:not(.tj-off) .binding_materials .source-old { background-color: var(--tj-danger-fill) !important; }
+html:not(.tj-off) .binding_materials .binding-materials-table .cutted_wrap.only-teach:after {
+  background: linear-gradient(to right, transparent 95%, var(--tj-fill-violet) 100%) !important;
+}
+html:not(.tj-off) .binding_materials .binding-materials-table pre { background-color: var(--tj-raised) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) .binding_materials #bindings td:not(.table-binding) div { border-color: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .binding_materials #binding_methodpack table td,
+html:not(.tj-off) .binding_materials #binding_methodpack table th { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .bind-mat-table .edit_icon i:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .linking_forms_body .center_section,
+html:not(.tj-off) .linking_forms_body .center_section li { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .linking_forms_body .section_blue_title {
+  background: var(--tj-raised) !important;
+  color: var(--tj-accent) !important;
+  border-bottom-color: var(--tj-accent-strong) !important;
+}
+html:not(.tj-off) .hor_scroll h2 { color: var(--tj-accent) !important; }
+html:not(.tj-off) .hor_scroll .frame { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .hor_scroll .frame .spec_item:hover { background: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .hor_scroll .frame .spec_item.active { background: var(--tj-accent-strong-2) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .read-material-current { background: var(--tj-fill-green) !important; }
+
+html:not(.tj-off) .addMaterial .video-wrap,
+html:not(.tj-off) .addMaterial .prezentation-wrap,
+html:not(.tj-off) .addMaterial .book-wrap,
+html:not(.tj-off) :is(.addMaterial, .addHomeWork, .addLabWork) .calendar_desctop md-calendar > div { border-color: var(--tj-border) !important; }
+
+/* кастомные галочки */
+html:not(.tj-off) :is(input[type=checkbox]#checkbox-1, input[type=checkbox]#checkbox-2, input[type=checkbox]#checkbox-3) + label:before,
+html:not(.tj-off) :is(input[type=checkbox]#checkbox-1, input[type=checkbox]#checkbox-2, input[type=checkbox]#checkbox-3) + label:after {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) :is(input[type=checkbox]#checkbox-1, input[type=checkbox]#checkbox-2, input[type=checkbox]#checkbox-3):checked + label:before { background: var(--tj-fill-green) !important; }
+
+/* уведомления по обучению */
+html:not(.tj-off) .modal-teaching-notifications .notifications-list { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list p,
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .title-notifications-progress-bar,
+html:not(.tj-off) .modal-teaching-notifications .notifications-progress-bar-label span { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .title-notifications-list { color: var(--tj-text) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .not-color { background: var(--tj-surface) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .not-color a { color: var(--tj-text) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .green-color { background: var(--tj-raised) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .info-block-blue { background: var(--tj-fill-blue) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .info-block-blue-withe { background: color-mix(in srgb, var(--tj-fill-blue) 55%, var(--tj-raised)) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-list .info-block-blue-withe-withe { background: var(--tj-raised-2) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-progress-bar > span { background: var(--tj-raised-2) !important; }
+html:not(.tj-off) .modal-teaching-notifications .notifications-progress-bar-feedback { background: var(--tj-raised) !important; }
+
+/* досье */
+html:not(.tj-off) .dossier.row .header,
+html:not(.tj-off) .dossier.row .dossier__rating .rating__item,
+html:not(.tj-off) .dossier.row .dossier__graph .graph__item,
+html:not(.tj-off) .dossier.row .dossier__graph .dossier__subjects {
+  background-color: var(--tj-surface) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .dossier.row .dossier__rating .rating__item p:first-child { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .dossier.row .dossier__rating .rating__item p:last-child { color: var(--tj-muted) !important; }
+html:not(.tj-off) .dossier.row .dossier__graph .dossier__subjects .subjects__list .list__item {
+  background-color: var(--tj-raised) !important;
+  border-bottom-color: var(--tj-surface) !important;
+}
+html:not(.tj-off) .dossier.row .dossier__graph .dossier__subjects .subjects__list .list__item .item__name { border-right-color: var(--tj-surface) !important; }
+
+/* видеоотчёты */
+html:not(.tj-off) .table-video-reports { background: var(--tj-surface) !important; }
+html:not(.tj-off) .video-rating-green { background: color-mix(in srgb, var(--tj-success) 18%, var(--tj-surface)) !important; }
+html:not(.tj-off) .video-rating-yellow { background: color-mix(in srgb, var(--tj-warning) 18%, var(--tj-surface)) !important; }
+html:not(.tj-off) .video-rating-red { background: color-mix(in srgb, var(--tj-danger) 18%, var(--tj-surface)) !important; }
+html:not(.tj-off) .traffic-table .comment_t_tr:hover { color: var(--tj-text) !important; }
+
+/* рамки строк в мобильной вёрстке таблиц */
+html:not(.tj-off) :is(.bind-mat-table tr, .linking_methodpack tr, .material_teach tr, .linking_spec_table tr,
+  .task_table tbody tr, #blockExamMark tr, .wrapper-students table.table tr.presents_stud,
+  .table_vizit_info tbody > tr:nth-child(2n+1)) { border-color: var(--tj-border) !important; }
+
+/* служебные статусы из site.css */
+html:not(.tj-off) .footer { background-color: var(--tj-surface) !important; border-top-color: var(--tj-border) !important; }
+html:not(.tj-off) .error-summary {
+  color: var(--tj-danger) !important;
+  background: color-mix(in srgb, var(--tj-danger) 10%, var(--tj-surface)) !important;
+  border-left-color: var(--tj-danger-fill) !important;
+}
+html:not(.tj-off) .in-work { background: var(--tj-fill-yellow) !important; }
+html:not(.tj-off) .status-statement { background-color: color-mix(in srgb, var(--tj-fill-yellow) 45%, transparent) !important; }
+html:not(.tj-off) .packet__title { color: var(--tj-muted) !important; }
+html:not(.tj-off) .packet md-select,
+html:not(.tj-off) .packet .md-text,
+html:not(.tj-off) .packet md-select-value { color: var(--tj-text-2) !important; }
+
+/* форма заявки */
+html:not(.tj-off) .lead-form-card { background: var(--tj-surface) !important; box-shadow: var(--tj-shadow) !important; }
+html:not(.tj-off) .lead-form-card__close { background: rgba(255, 255, 255, .08) !important; }
+html:not(.tj-off) .lead-form-card__close:hover { background: rgba(255, 255, 255, .15) !important; }
+html:not(.tj-off) .lead-form-card__title { color: var(--tj-text) !important; }
+html:not(.tj-off) .lead-form-field label { color: var(--tj-muted) !important; }
+html:not(.tj-off) .lead-form-submit { background: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .lead-form-submit:hover:not([disabled]) { background: var(--tj-accent-strong-2) !important; }
+html:not(.tj-off) .lead-form-message--error { background: color-mix(in srgb, var(--tj-danger) 14%, var(--tj-surface)) !important; color: var(--tj-danger) !important; }
+html:not(.tj-off) .lead-form-message--success { background: color-mix(in srgb, var(--tj-success) 14%, var(--tj-surface)) !important; color: var(--tj-success) !important; }
+
+/* =====================================================================
+   Очередь проверки (review-queue)
+   ===================================================================== */
+html:not(.tj-off) .review-queue-panel,
+html:not(.tj-off) .review-card-panel {
+  background: var(--tj-surface) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .review-mode-tabs { background: var(--tj-raised) !important; border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .review-mode-tabs button { color: var(--tj-muted) !important; }
+html:not(.tj-off) .review-mode-tabs button.is-active,
+html:not(.tj-off) .review-queue-count,
+html:not(.tj-off) .review-editor .review-send-button { background: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .review-editor .review-send-button:hover,
+html:not(.tj-off) .review-editor .review-send-button:focus { background: var(--tj-accent-strong-2) !important; }
+html:not(.tj-off) .review-editor .review-send-button[disabled] { background: var(--tj-raised-2) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) .review-sort-button { background: var(--tj-raised) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) :is(.review-queue-list, .review-queue-item, .review-student-header, .review-history-list article,
+  .review-lessons-table-wrap, .review-lessons-table th, .review-lessons-table td) { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .review-queue-item { background: var(--tj-surface) !important; }
+html:not(.tj-off) .review-queue-item:hover { background: var(--tj-raised) !important; }
+html:not(.tj-off) .review-queue-item.is-selected {
+  background: color-mix(in srgb, var(--tj-accent) 14%, var(--tj-surface)) !important;
+  box-shadow: inset 4px 0 var(--tj-accent) !important;
+}
+html:not(.tj-off) :is(.review-queue-header h3, .review-card-section h3, .review-queue-student, .review-student-main h2,
+  .review-deadline strong, .review-metric strong) { color: var(--tj-text) !important; }
+html:not(.tj-off) :is(.review-queue-meta, .review-queue-dates, .review-queue-dates strong, .review-period,
+  .review-period strong, .review-deadline span, .review-metric span, .review-history-list article > div,
+  .review-history-list p, .review-lessons-table th, .review-lessons-table td) { color: var(--tj-text-2) !important; }
+html:not(.tj-off) :is(.review-queue-empty, .review-card-empty, .review-history-empty, .review-card-empty i,
+  .review-lessons-table thead span) { color: var(--tj-muted) !important; }
+html:not(.tj-off) .review-queue-item.is-overdue .review-queue-dates strong,
+html:not(.tj-off) .review-deadline.is-overdue strong,
+html:not(.tj-off) .review-lessons-table td.attendance-0 { color: var(--tj-danger) !important; }
+html:not(.tj-off) .review-lessons-table td.attendance-1 { color: var(--tj-accent) !important; }
+html:not(.tj-off) .review-lessons-table td.attendance-2 { color: var(--tj-warning) !important; }
+html:not(.tj-off) .review-student-tags span { background: var(--tj-raised) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) .review-metric,
+html:not(.tj-off) .review-lessons-table th:first-child,
+html:not(.tj-off) .review-lessons-table thead th { background: var(--tj-raised) !important; }
+html:not(.tj-off) .review-history-more { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: var(--tj-accent) !important; }
+html:not(.tj-off) .review-history-more[disabled] { color: var(--tj-muted) !important; }
+html:not(.tj-off) .review-lessons-table .review-lesson-theme { color: var(--tj-accent) !important; }
+html:not(.tj-off) .review-lessons-table .review-lesson-theme:hover,
+html:not(.tj-off) .review-lessons-table .review-lesson-theme:focus { background: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .review-homework-pending {
+  background: color-mix(in srgb, var(--tj-warning) 14%, var(--tj-surface)) !important;
+  border-color: var(--tj-fill-amber) !important;
+  color: var(--tj-warning) !important;
+}
+html:not(.tj-off) .review-homework-pending:hover { background: var(--tj-fill-orange) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .review-editor { background: var(--tj-surface) !important; border-top-color: var(--tj-border) !important; box-shadow: none !important; }
+html:not(.tj-off) .review-history-actions .review-delete-button { background: var(--tj-danger-fill) !important; }
+html:not(.tj-off) .review-history-actions .review-delete-button:hover,
+html:not(.tj-off) .review-history-actions .review-delete-button:focus { background: var(--tj-danger-fill-2) !important; }
+
+/* =====================================================================
+   Редактор материалов (Editor.js и его блоки)
+   ===================================================================== */
+html:not(.tj-off) :is(.ce-popover, .ce-popover__container, .ce-inline-toolbar, .ce-conversion-toolbar,
+  .ce-settings, .ce-toolbox, .editorjs-codeCup_languageDropdown) {
+  background-color: var(--tj-raised-2) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+  box-shadow: var(--tj-shadow) !important;
+}
+html:not(.tj-off) :is(.ce-popover-item:hover, .ce-popover-item--focused, .ce-inline-tool:hover,
+  .ce-inline-toolbar__dropdown:hover, .ce-conversion-tool:hover, .editorjs-codeCup_languageOption:hover) {
+  background-color: var(--tj-raised) !important;
+}
+html:not(.tj-off) :is(.ce-popover-item__icon, .ce-conversion-tool__icon, .cdx-search-field) {
+  background-color: var(--tj-raised) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) :is(.ce-toolbar__plus, .ce-toolbar__settings-btn) { color: var(--tj-text-2) !important; }
+html:not(.tj-off) :is(.ce-toolbar__plus:hover, .ce-toolbar__settings-btn:hover) { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) .ce-block--selected .ce-block__content { background: color-mix(in srgb, var(--tj-accent) 18%, transparent) !important; }
+html:not(.tj-off) .cdx-input { border-color: var(--tj-border) !important; box-shadow: none !important; }
+html:not(.tj-off) .editorjs-codeCup_languageOption { color: var(--tj-text) !important; }
+
+html:not(.tj-off) :is(#editorjs, #editorjs-preview) blockquote { border-left-color: var(--tj-border) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) #editorjs-preview blockquote cite { color: var(--tj-muted) !important; }
+html:not(.tj-off) :is(#editorjs-preview .image-block .caption, #editorjs-preview .embed-block .caption) { color: var(--tj-muted) !important; }
+html:not(.tj-off) :is(#editorjs-preview .image-block.with-border, #editorjs-preview table th, #editorjs-preview table td) { border-color: var(--tj-border) !important; }
+html:not(.tj-off) :is(#editorjs-preview .image-block.with-background, #editorjs-preview table th, #editorjs-preview .inline-code) { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) #editorjs-preview .warning { background-color: color-mix(in srgb, var(--tj-danger) 14%, var(--tj-surface)) !important; border-left-color: var(--tj-danger-fill) !important; }
+html:not(.tj-off) #editorjs-preview .attaches a { color: var(--tj-link) !important; border-bottom-color: var(--tj-link) !important; }
+
+/* блок кода */
+html:not(.tj-off) .editor-code { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: #b9bdf2 !important; }
+html:not(.tj-off) .editor-code__pre { color: #b9bdf2 !important; }
+html:not(.tj-off) :is(.editor-code__header, .editor-code__lines) { background: var(--tj-raised-2) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) :is(.editor-code__language, .editor-code__language i, .editor-code__lines) { color: var(--tj-muted) !important; }
+html:not(.tj-off) .editor-code__copy { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) :is(.editor-code__copy:hover, .editor-code__copy:focus-visible) { background: var(--tj-surface) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .editor-code__copy--done { background: color-mix(in srgb, var(--tj-success) 16%, var(--tj-surface)) !important; color: var(--tj-success) !important; }
+html:not(.tj-off) .table-of-contents { border-left-color: var(--tj-border) !important; }
+html:not(.tj-off) .table-of-contents__header::after { color: var(--tj-muted) !important; }
+html:not(.tj-off) .cdx-alert.cdx-alert-warning {
+  background: color-mix(in srgb, var(--tj-warning) 12%, var(--tj-surface)) !important;
+  border-left-color: var(--tj-fill-amber) !important;
+  color: var(--tj-warning) !important;
+}
+
+/* настройки блоков редактора */
+html:not(.tj-off) :is(.editor-columns-settings, .image-tool__width-control, .editorjs-codeCup_inputContainer,
+  .embed-tool__dimensions-control, .editor-style-panel, .video-embed-block__height-control,
+  .video-block__height-control, .cdx-nested-list__start-control, .editor-spacer__height-control) :is(input, select, textarea, [contenteditable=true]) {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) :is(.editor-columns-settings label, .editor-style-panel__symbol, .editor-style-panel button,
+  .editor-style-panel__advanced > summary, .video-embed-block__height-control, .video-block__height-control,
+  .image-tool__width-control, .cdx-nested-list__start-control, .editor-spacer__height-control) { color: var(--tj-muted) !important; }
+html:not(.tj-off) .editor-style-panel__advanced { border-top-color: var(--tj-border) !important; }
+html:not(.tj-off) .icon-btn { border-color: var(--tj-border) !important; }
+html:not(.tj-off) :is(.video-embed-block__iframe, .video-embed-block__settings) { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) :is(.video-embed-block__button, .video-block__button, .image-block__button) {
+  background-color: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text-2) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .editor-spacer { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .editor-spacer__size { background: var(--tj-raised) !important; color: var(--tj-muted) !important; }
+
+/* страница редактора */
+html:not(.tj-off) .editor-content,
+html:not(.tj-off) .editor-content__wrapper-button,
+html:not(.tj-off) .md-dialog-container #editor-modal { background-color: var(--tj-surface) !important; }
+html:not(.tj-off) .editor-content__wrapper-button { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .editor-content__history { border-right-color: var(--tj-border) !important; }
+html:not(.tj-off) .editor-content__history-button { color: var(--tj-text-2) !important; }
+html:not(.tj-off) :is(.editor-content__history-button:hover:not(:disabled), .editor-content__history-button:focus-visible:not(:disabled)) {
+  color: var(--tj-accent) !important;
+  background: var(--tj-raised) !important;
+}
+html:not(.tj-off) .editor-content__history-button:disabled { color: var(--tj-muted) !important; }
+html:not(.tj-off) .editor-content__back-button { color: var(--tj-text) !important; }
+html:not(.tj-off) :is(.editor-content__back-button:hover, .editor-content__back-button:focus) { background-color: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+
+/* окно импорта */
+html:not(.tj-off) .editor-import { background: var(--tj-surface) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .editor-import__icon { background: var(--tj-raised) !important; color: var(--tj-accent) !important; }
+html:not(.tj-off) .editor-import__title { color: var(--tj-text) !important; }
+html:not(.tj-off) :is(.editor-import__subtitle, .editor-import__close) { color: var(--tj-muted) !important; }
+html:not(.tj-off) :is(.editor-import__close:hover:not(:disabled), .editor-import__close:focus:not(:disabled)) { background: var(--tj-raised) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .editor-import__label { color: var(--tj-text-2) !important; }
+html:not(.tj-off) .editor-import__input[type=url] { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .editor-import__notice { background: color-mix(in srgb, var(--tj-warning) 12%, var(--tj-surface)) !important; color: var(--tj-warning) !important; }
+html:not(.tj-off) .editor-import__error { background: color-mix(in srgb, var(--tj-danger) 12%, var(--tj-surface)) !important; color: var(--tj-danger) !important; }
+html:not(.tj-off) .editor-import__button--secondary { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) .editor-import__button--secondary:hover:not(:disabled) { background: var(--tj-raised-2) !important; }
+html:not(.tj-off) .editor-import__button--primary { background: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .editor-import__button--primary:hover:not(:disabled) { background: var(--tj-accent-strong-2) !important; }
+
+/* блоки «кнопка» и «карусель» */
+html:not(.tj-off) .editor-button-tool__input { background: var(--tj-raised) !important; border-color: var(--tj-border) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) :is(.editor-button-block__link--secondary, .editor-button-block__link--outline) {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) :is(.editor-carousel-tool__add, .editor-carousel__empty) {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text-2) !important;
+}
+html:not(.tj-off) :is(.editor-carousel-tool__add:hover:not(:disabled), .editor-carousel__empty:hover:not(:disabled)) { background: var(--tj-raised-2) !important; }
+html:not(.tj-off) .editor-carousel { background: var(--tj-raised) !important; box-shadow: none !important; }
+html:not(.tj-off) :is(.editor-carousel__image, .editor-carousel-tool__thumb) { background: var(--tj-raised-2) !important; }
+
+/* =====================================================================
+   Вход (страница логина)
+   ===================================================================== */
+html:not(.tj-off) #cover .btn-primary,
+html:not(.tj-off) #cover button[name="action"] {
+  background-color: var(--tj-danger-fill) !important;
+  border-color: var(--tj-danger-fill) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) #cover .btn-primary:hover,
+html:not(.tj-off) #cover button[name="action"]:hover {
+  background-color: var(--tj-danger-fill-2) !important;
+  border-color: var(--tj-danger-fill-2) !important;
+}
+/* красный уголок формы задан прямо в разметке */
+html:not(.tj-off) #cover .form > div[style*="border-top"] { border-color: var(--tj-danger-fill) !important; }
+html:not(.tj-off) #cover a[style*="color"] { color: var(--tj-link) !important; }
+html:not(.tj-off) #cover .btn-lang { background: var(--tj-raised) !important; color: var(--tj-muted) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) #cover .btn-lang.active,
+html:not(.tj-off) #cover .btn-lang:hover { background: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+
+/* старая форма входа (.login) */
+html:not(.tj-off) .login .login_form .login_inputs input { background-color: var(--tj-raised) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .login .pass_buttons .btn-login { background-color: var(--tj-accent-strong) !important; }
+html:not(.tj-off) .login .btn-login:hover,
+html:not(.tj-off) .login .pass_buttons .btn-light:hover { background: var(--tj-accent-strong-2) !important; }
+html:not(.tj-off) .login .pass_buttons .btn-light { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) :is(.login .title_block, .login .login_form) ul li.lang-item a.btn-lang { color: var(--tj-text) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) :is(.login .title_block, .login .login_form) ul li.lang-item a.btn-lang.active { background-color: var(--tj-raised-2) !important; color: var(--tj-accent) !important; }
+html:not(.tj-off) md-dialog.login_popup { color: var(--tj-text) !important; }
+html:not(.tj-off) md-dialog.login_popup .cancel_btn { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .city-link { color: var(--tj-muted) !important; }
+html:not(.tj-off) .city-link:hover { color: var(--tj-text) !important; }
+html:not(.tj-off) .cityList md-select.city_select md-select-value { background: var(--tj-raised) !important; }
+
+/* =====================================================================
+   Angular Material
+   ===================================================================== */
+/* md-content — прозрачный: под ним либо тёмная страница, либо карточка/окно */
+html:not(.tj-off) md-content { background-color: transparent !important; color: var(--tj-text-2); }
+
+html:not(.tj-off) md-dialog,
+html:not(.tj-off) md-card,
+html:not(.tj-off) md-bottom-sheet,
+html:not(.tj-off) md-toolbar.md-menu-toolbar,
+html:not(.tj-off) .md-calendar,
+html:not(.tj-off) .md-datepicker-calendar,
+html:not(.tj-off) .md-datepicker-calendar-pane {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) md-dialog { box-shadow: var(--tj-shadow), 0 0 0 1px var(--tj-border) !important; }
+html:not(.tj-off) md-dialog md-dialog-actions,
+html:not(.tj-off) md-dialog .md-actions { border-top-color: var(--tj-border) !important; }
+html:not(.tj-off) md-card md-card-header md-card-header-text .md-subhead,
+html:not(.tj-off) md-card md-card-title md-card-title-text .md-subhead { color: var(--tj-muted) !important; }
+
+/* выпадающие меню и списки */
+html:not(.tj-off) md-menu-content,
+html:not(.tj-off) md-select-menu,
+html:not(.tj-off) md-select-menu md-content,
+html:not(.tj-off) .md-autocomplete-suggestions-container,
+html:not(.tj-off) .md-autocomplete-suggestions {
+  background-color: var(--tj-raised-2) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) md-menu-content md-menu-item,
+html:not(.tj-off) md-menu-content md-menu-item .md-button,
+html:not(.tj-off) md-select-menu md-content md-option,
+html:not(.tj-off) md-optgroup label,
+html:not(.tj-off) .md-autocomplete-suggestions-container li { color: var(--tj-text) !important; }
+html:not(.tj-off) md-menu-content md-menu-item md-icon { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-select-menu md-content md-option:not([disabled]):hover,
+html:not(.tj-off) md-select-menu md-content md-option:not([disabled]):focus,
+html:not(.tj-off) md-menu-content md-menu-item .md-button:not([disabled]):hover,
+html:not(.tj-off) .md-autocomplete-suggestions-container li:hover,
+html:not(.tj-off) .md-autocomplete-suggestions-container li.selected { background: var(--tj-raised) !important; }
+html:not(.tj-off) md-select-menu md-content md-option[selected] { color: var(--tj-accent) !important; }
+html:not(.tj-off) md-select-menu md-content md-option[disabled] { color: var(--tj-muted) !important; }
+html:not(.tj-off) .md-autocomplete-suggestions-container li .highlight { color: var(--tj-accent) !important; }
+html:not(.tj-off) md-autocomplete { background: var(--tj-raised) !important; }
+html:not(.tj-off) md-autocomplete[disabled] { background: var(--tj-surface) !important; }
+html:not(.tj-off) md-autocomplete button md-icon path { fill: var(--tj-muted) !important; }
+
+/* поля ввода */
+html:not(.tj-off) md-input-container .md-input {
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border);
+}
+html:not(.tj-off) md-input-container textarea.md-input { border-color: var(--tj-border) !important; }
+html:not(.tj-off) md-input-container label,
+html:not(.tj-off) md-input-container .md-placeholder,
+html:not(.tj-off) md-input-container:not(.md-input-invalid).md-input-has-value label { color: var(--tj-muted); }
+html:not(.tj-off) md-input-container:not(.md-input-invalid).md-input-focused label,
+html:not(.tj-off) md-input-container:not(.md-input-invalid).md-input-focused md-icon { color: var(--tj-accent) !important; }
+html:not(.tj-off) md-input-container:not(.md-input-invalid).md-input-focused .md-input { border-color: var(--tj-accent) !important; }
+html:not(.tj-off) md-input-container .md-input[disabled] { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-input-container > md-icon { color: var(--tj-text-2); }
+html:not(.tj-off) md-input-container .md-char-counter { color: var(--tj-muted) !important; }
+
+html:not(.tj-off) md-select .md-select-value { border-bottom-color: var(--tj-border); }
+html:not(.tj-off) md-select .md-select-value.md-select-placeholder,
+html:not(.tj-off) md-select[disabled] .md-select-value { color: var(--tj-muted); }
+html:not(.tj-off) md-select:not([disabled]):focus .md-select-value { border-bottom-color: var(--tj-accent) !important; color: var(--tj-text); }
+html:not(.tj-off) body md-select .md-select-icon { color: var(--tj-muted) !important; }
+
+html:not(.tj-off) md-datepicker .md-datepicker-input,
+html:not(.tj-off) .md-datepicker-input {
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .md-datepicker-input-container { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .md-datepicker-open .md-datepicker-input-container { background: var(--tj-raised) !important; }
+html:not(.tj-off) .md-datepicker-triangle-button .md-datepicker-expand-triangle { border-top-color: var(--tj-muted) !important; }
+html:not(.tj-off) md-datepicker .md-datepicker-triangle-button.md-button.md-icon-button:after { color: var(--tj-muted) !important; }
+
+/* календарь */
+html:not(.tj-off) .md-calendar-day-header,
+html:not(.tj-off) .main md-calendar thead { background: var(--tj-raised) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .main md-calendar .md-calendar-day-header th { background: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .main md-calendar .md-calendar-scroll-mask { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .md-calendar tr:last-child td { border-bottom-color: var(--tj-border) !important; }
+html:not(.tj-off) .md-calendar-date.md-focus .md-calendar-date-selection-indicator,
+html:not(.tj-off) .md-calendar-date-selection-indicator:hover { background: var(--tj-raised-2) !important; }
+html:not(.tj-off) .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,
+html:not(.tj-off) .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+  background: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .md-calendar-date.md-calendar-date-today .md-calendar-date-selection-indicator { border-color: var(--tj-accent) !important; }
+html:not(.tj-off) .md-calendar-date-disabled,
+html:not(.tj-off) .md-calendar-month-label-disabled { color: var(--tj-muted) !important; }
+
+/* галочки, радиокнопки, переключатели */
+html:not(.tj-off) md-checkbox:not(.md-checked) .md-icon,
+html:not(.tj-off) .md-checkbox-enabled:not(.md-checked) .md-icon { border-color: var(--tj-muted) !important; }
+html:not(.tj-off) md-checkbox.md-checked .md-icon,
+html:not(.tj-off) .md-checkbox-enabled.md-checked .md-icon { background-color: var(--tj-accent-strong) !important; }
+html:not(.tj-off) md-checkbox[disabled] .md-label,
+html:not(.tj-off) md-radio-button[disabled] { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-radio-button .md-off { border-color: var(--tj-muted) !important; }
+html:not(.tj-off) md-radio-button.md-checked .md-off { border-color: var(--tj-accent) !important; }
+html:not(.tj-off) md-radio-button .md-on { background-color: var(--tj-accent); }
+html:not(.tj-off) md-switch .md-bar { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) md-switch.md-checked .md-bar { background-color: color-mix(in srgb, var(--tj-accent) 50%, transparent) !important; }
+html:not(.tj-off) md-switch.md-checked .md-thumb { background-color: var(--tj-accent) !important; }
+html:not(.tj-off) md-slider .md-track { background-color: var(--tj-border) !important; }
+
+/* кнопки Material */
+html:not(.tj-off) .md-button.md-raised:not(.md-primary):not(.md-accent):not(.md-warn) {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) .md-button.md-raised:not(.md-primary):not(.md-accent):not(.md-warn):not([disabled]):hover { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .md-button.md-raised[disabled],
+html:not(.tj-off) .md-button.md-fab[disabled] { background-color: rgba(255, 255, 255, .08) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) .md-button.md-primary.md-raised,
+html:not(.tj-off) .md-button.md-primary.md-fab { background-color: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .md-button.md-primary:not(.md-raised):not(.md-fab) { color: var(--tj-accent); }
+html:not(.tj-off) md-icon { color: var(--tj-text-2); }
+
+/* вкладки, списки, разделители */
+html:not(.tj-off) md-tabs md-tabs-wrapper { border-color: var(--tj-border) !important; }
+html:not(.tj-off) md-tabs .md-tab { color: var(--tj-muted); }
+html:not(.tj-off) md-tabs .md-tab.md-active { color: var(--tj-accent) !important; }
+html:not(.tj-off) md-tabs md-ink-bar { color: var(--tj-accent) !important; background: var(--tj-accent) !important; }
+html:not(.tj-off) md-nav-bar .md-button._md-nav-button.md-unselected { color: var(--tj-muted) !important; }
+html:not(.tj-off) md-divider { border-color: var(--tj-border) !important; }
+html:not(.tj-off) md-list md-list-item .md-list-item-text :is(h3, h4) { color: var(--tj-text) !important; }
+html:not(.tj-off) md-list md-list-item .md-list-item-text p,
+html:not(.tj-off) md-list md-list-item > md-icon { color: var(--tj-muted) !important; }
+html:not(.tj-off) .md-subheader { background-color: var(--tj-surface) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) md-chips .md-chips { box-shadow: 0 1px var(--tj-border) !important; }
+html:not(.tj-off) md-chips md-chip { background: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) md-chips .md-chips .md-chip-input-container input { color: var(--tj-text) !important; }
+html:not(.tj-off) md-progress-circular path { stroke: var(--tj-accent) !important; }
+html:not(.tj-off) md-progress-linear .md-bar { background-color: var(--tj-accent) !important; }
+html:not(.tj-off) md-progress-linear .md-container { background-color: var(--tj-raised-2) !important; }
+
+/* =====================================================================
+   Chosen (выпадающие списки с поиском)
+   ===================================================================== */
+html:not(.tj-off) .chosen-container-single .chosen-single,
+html:not(.tj-off) body .chosen-container .chosen-single,
+html:not(.tj-off) .chosen-container-active.chosen-with-drop .chosen-single {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .chosen-container-active .chosen-single,
+html:not(.tj-off) .chosen-container-active .chosen-choices { border-color: var(--tj-accent) !important; box-shadow: none !important; }
+html:not(.tj-off) .active + .chosen-container .chosen-single {
+  background: color-mix(in srgb, var(--tj-accent) 18%, var(--tj-raised)) !important;
+  border-color: var(--tj-accent-strong) !important;
+}
+html:not(.tj-off) body .chosen-container:after { border-top-color: var(--tj-muted) !important; }
+html:not(.tj-off) .chosen-container-single .chosen-default { color: var(--tj-muted) !important; }
+html:not(.tj-off) .chosen-container .chosen-drop {
+  background: var(--tj-raised-2) !important;
+  border-color: var(--tj-border) !important;
+  box-shadow: var(--tj-shadow) !important;
+}
+html:not(.tj-off) .chosen-container .chosen-results { color: var(--tj-text) !important; }
+html:not(.tj-off) .chosen-container .chosen-results li.highlighted {
+  background: var(--tj-accent-strong) !important;
+  color: var(--tj-on-fill) !important;
+}
+html:not(.tj-off) .chosen-container .chosen-results li.disabled-result,
+html:not(.tj-off) .chosen-container-multi .chosen-drop .result-selected { color: var(--tj-muted) !important; }
+html:not(.tj-off) .chosen-container .chosen-results li.no-results { background: var(--tj-raised) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) .chosen-container-multi .chosen-choices {
+  background: var(--tj-raised) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .chosen-container-multi .chosen-choices li.search-choice {
+  background: var(--tj-raised-2) !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+  box-shadow: none !important;
+}
+html:not(.tj-off) .chosen-container-multi .chosen-choices li.search-field input[type="text"] { background: transparent !important; color: var(--tj-text) !important; }
+
+/* выбор даты (pickadate) */
+html:not(.tj-off) .picker__box { background: var(--tj-surface) !important; color: var(--tj-text-2) !important; }
+html:not(.tj-off) .picker__weekday-display,
+html:not(.tj-off) .picker__date-display,
+html:not(.tj-off) .picker__day--selected,
+html:not(.tj-off) .picker__day--selected:hover,
+html:not(.tj-off) .picker--focused .picker__day--selected { background-color: var(--tj-accent-strong) !important; color: var(--tj-on-fill) !important; }
+html:not(.tj-off) .picker__close,
+html:not(.tj-off) .picker__today,
+html:not(.tj-off) .picker__day.picker__day--today { color: var(--tj-accent) !important; }
+
+/* выпадающее меню materialize */
+html:not(.tj-off) .dropdown-content { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .dropdown-content li:hover { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) .dropdown-content li span,
+html:not(.tj-off) .dropdown-content li a { color: var(--tj-text) !important; }
+
+/* =====================================================================
+   Bootstrap 5 и общие элементы
+   ===================================================================== */
+html:not(.tj-off) .card,
+html:not(.tj-off) .list-group-item,
+html:not(.tj-off) .modal-content,
+html:not(.tj-off) .popover,
+html:not(.tj-off) .dropdown-menu,
+html:not(.tj-off) .offcanvas,
+html:not(.tj-off) .bg-white,
+html:not(.tj-off) .bg-light,
+html:not(.tj-off) .jumbotron,
+html:not(.tj-off) .toast {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .card-header,
+html:not(.tj-off) .card-footer,
+html:not(.tj-off) .modal-header,
+html:not(.tj-off) .modal-footer {
+  background-color: transparent !important;
+  border-color: var(--tj-border) !important;
+  color: var(--tj-text) !important;
+}
+html:not(.tj-off) .modal-backdrop { background-color: #000 !important; }
+html:not(.tj-off) .close { color: var(--tj-text) !important; text-shadow: none !important; }
+html:not(.tj-off) .btn-close { filter: invert(1) grayscale(1) brightness(1.6); }
+html:not(.tj-off) .dropdown-item { color: var(--tj-text) !important; }
+html:not(.tj-off) .dropdown-item:hover,
+html:not(.tj-off) .dropdown-item:focus,
+html:not(.tj-off) .list-group-item-action:hover { background-color: var(--tj-raised) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .dropdown-divider { border-color: var(--tj-border) !important; }
+
+html:not(.tj-off) .text-dark,
+html:not(.tj-off) .text-body { color: var(--tj-text) !important; }
+html:not(.tj-off) .text-muted,
+html:not(.tj-off) .text-secondary { color: var(--tj-muted) !important; }
+html:not(.tj-off) .border,
+html:not(.tj-off) .border-top,
+html:not(.tj-off) .border-bottom,
+html:not(.tj-off) .border-start,
+html:not(.tj-off) .border-end { border-color: var(--tj-border) !important; }
+
+/* Таблицы */
+html:not(.tj-off) table { color: var(--tj-text-2); border-color: var(--tj-border) !important; }
+html:not(.tj-off) th,
+html:not(.tj-off) td { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .table {
+  --bs-table-bg: transparent;
+  --bs-table-striped-color: var(--tj-text-2);
+  --bs-table-striped-bg: rgba(255, 255, 255, .03);
+  --bs-table-active-color: var(--tj-text);
+  --bs-table-active-bg: rgba(255, 255, 255, .06);
+  --bs-table-hover-color: var(--tj-text);
+  --bs-table-hover-bg: rgba(255, 255, 255, .05);
+  color: var(--tj-text-2) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .table-light,
+html:not(.tj-off) .table-light > * > * { --bs-table-bg: var(--tj-raised); color: var(--tj-text) !important; }
+html:not(.tj-off) .table-hover tbody tr:hover { background-color: var(--tj-raised) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) table .tablesort-sortable:after { border-bottom-color: var(--tj-muted); }
+html:not(.tj-off) table .tablesort-desc:after { border-top-color: var(--tj-accent) !important; }
+html:not(.tj-off) table .tablesort-asc:after { border-bottom-color: var(--tj-accent) !important; }
+
+/* Формы */
+html:not(.tj-off) input:not(:is([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="image"], [type="submit"], [type="button"], [type="file"])),
+html:not(.tj-off) textarea,
+html:not(.tj-off) select,
+html:not(.tj-off) .form-control,
+html:not(.tj-off) .form-select,
+html:not(.tj-off) .input-group-text {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border) !important;
+}
+/* поля внутри Material и Chosen остаются прозрачными, как задумано */
+html:not(.tj-off) :is(md-input-container .md-input, md-chips input, md-autocomplete input, input.md-datepicker-input,
+  .chosen-container .chosen-search input, .chosen-container-multi .chosen-choices li.search-field input) {
+  background-color: transparent !important;
+}
+html:not(.tj-off) .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238d98a9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+html:not(.tj-off) .form-control:focus,
+html:not(.tj-off) .form-select:focus,
+html:not(.tj-off) input:focus,
+html:not(.tj-off) textarea:focus {
+  border-color: var(--tj-accent) !important;
+  box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--tj-accent) 25%, transparent) !important;
+}
+html:not(.tj-off) :is(md-input-container .md-input, input.md-datepicker-input, md-chips input, md-autocomplete input):focus { box-shadow: none !important; }
+html:not(.tj-off) .form-control:disabled,
+html:not(.tj-off) .form-control[readonly] { background-color: var(--tj-surface) !important; color: var(--tj-muted) !important; }
+html:not(.tj-off) ::placeholder { color: var(--tj-muted) !important; opacity: 1; }
+html:not(.tj-off) .form-check-input { background-color: var(--tj-raised) !important; border-color: var(--tj-muted) !important; }
+html:not(.tj-off) .form-check-input:checked { background-color: var(--tj-accent-strong) !important; border-color: var(--tj-accent-strong) !important; }
+
+/* Кнопки-«пустышки» */
+html:not(.tj-off) .btn-light,
+html:not(.tj-off) .btn-outline-secondary,
+html:not(.tj-off) .btn-outline-dark,
+html:not(.tj-off) .btn-default,
+html:not(.tj-off) .btn-white {
+  background-color: var(--tj-raised) !important;
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border) !important;
+}
+html:not(.tj-off) .btn-light:hover,
+html:not(.tj-off) .btn-outline-secondary:hover,
+html:not(.tj-off) .btn-outline-dark:hover,
+html:not(.tj-off) .btn-default:hover { background-color: var(--tj-raised-2) !important; }
+html:not(.tj-off) .btn-danger,
+html:not(.tj-off) .badge-danger,
+html:not(.tj-off) .bg-danger {
+  background-color: var(--tj-danger-fill) !important;
+  border-color: var(--tj-danger-fill) !important;
+}
+html:not(.tj-off) .btn-danger:hover,
+html:not(.tj-off) .btn-danger:focus {
+  background-color: var(--tj-danger-fill-2) !important;
+  border-color: var(--tj-danger-fill-2) !important;
+}
+html:not(.tj-off) .text-danger { color: var(--tj-danger) !important; }
+
+/* Вкладки, пагинация, бейджи, алерты */
+html:not(.tj-off) .nav-tabs { border-color: var(--tj-border) !important; }
+html:not(.tj-off) .nav-tabs .nav-link.active,
+html:not(.tj-off) .nav-tabs .nav-item.show .nav-link {
+  background-color: var(--tj-surface) !important;
+  color: var(--tj-text) !important;
+  border-color: var(--tj-border) var(--tj-border) var(--tj-surface) !important;
+}
+html:not(.tj-off) .page-link { background-color: var(--tj-surface) !important; border-color: var(--tj-border) !important; color: var(--tj-link) !important; }
+html:not(.tj-off) .page-item.active .page-link { background-color: var(--tj-accent-strong) !important; color: #fff !important; }
+html:not(.tj-off) .page-item.disabled .page-link { color: var(--tj-muted) !important; }
+html:not(.tj-off) .badge-light,
+html:not(.tj-off) .badge.bg-light { background-color: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .progress { background-color: var(--tj-raised) !important; }
+html:not(.tj-off) .tooltip-inner { background-color: var(--tj-raised-2) !important; color: var(--tj-text) !important; }
+html:not(.tj-off) .alert-info { background: color-mix(in srgb, var(--tj-link) 12%, var(--tj-surface)) !important; color: var(--tj-text-2) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .alert-success { background: color-mix(in srgb, var(--tj-success) 12%, var(--tj-surface)) !important; color: var(--tj-text-2) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .alert-warning { background: color-mix(in srgb, var(--tj-warning) 12%, var(--tj-surface)) !important; color: var(--tj-text-2) !important; border-color: var(--tj-border) !important; }
+html:not(.tj-off) .alert-danger { background: color-mix(in srgb, var(--tj-danger) 12%, var(--tj-surface)) !important; color: var(--tj-text-2) !important; border-color: var(--tj-border) !important; }
+
+/* =====================================================================
+   Умная подстройка: эти атрибуты расставляет content.js на светлых
+   блоках, которых нет в правилах выше (остальные страницы omni).
+   ===================================================================== */
+html.tj-smart:not(.tj-off) [data-tj-bg="0"] { background-color: var(--tj-bg) !important; }
+html.tj-smart:not(.tj-off) [data-tj-bg="1"] { background-color: var(--tj-surface) !important; }
+html.tj-smart:not(.tj-off) [data-tj-bg="2"] { background-color: var(--tj-raised) !important; }
+html.tj-smart:not(.tj-off) [data-tj-bg="3"] { background-color: var(--tj-raised-2) !important; }
+html.tj-smart:not(.tj-off) [data-tj-bd] { border-color: var(--tj-border) !important; }
+html.tj-smart:not(.tj-off) [data-tj-fg="t"] { color: var(--tj-text) !important; }
+html.tj-smart:not(.tj-off) [data-tj-fg="s"] { color: var(--tj-text-2) !important; }
+html.tj-smart:not(.tj-off) [data-tj-fill] { fill: var(--tj-text-2) !important; }
